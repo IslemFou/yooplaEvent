@@ -5,6 +5,7 @@ import Navigation from './components/layout/Navigation';
 import Home from './pages/Home';
 import About from './pages/About';
 import Profil from './pages/Profil';
+import EventDetail from './pages/EventDetail';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/profil" element={<Profil />} />
+            <Route path="/event/:id" element={<EventDetail />} />
+            <Route path="*" element={<div>404</div>} />
           </Routes>
         </main>
       </div>

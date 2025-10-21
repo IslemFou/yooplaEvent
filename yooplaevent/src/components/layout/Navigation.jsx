@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+const logo = process.env.PUBLIC_URL + '/images/cocktail-svgrepo-com.svg';
 
 const MenuIcon = () => (
     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,10 +29,16 @@ export default function Navigation() {
             <nav className="bg-white shadow-lg sticky top-0 z-50">
                 {/* code de la navigation */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-16">
-                        <Link to="/" className="text-xl font-bold">
-                            Yoopla Events
-                        </Link>
+                    <div className="flex justify-between items-center h-20">
+                        {/* Logo */}
+                        <div>
+                            <Link to="/Home">
+                                <img src={logo} alt="LogoPortfolio" className="w-20 inline-block mr-2 " />
+                            </Link>
+                            <Link to="/" className="text-xl font-bold">
+                                Yoopla Events
+                            </Link>
+                        </div>
                         {/* Navigation desktop */}
                         <div className="hidden md:flex space-x-4">
                             {menuItems.map((item) =>
@@ -39,11 +46,11 @@ export default function Navigation() {
                                     key={item.text} // Ajout de la clé unique pour chaque élément du tableau
                                     to={item.path} // Utilisation de la propriété path de chaque élément du tableau
                                     className={`px-3 py-2 rounded-md ${location.pathname === item.path
-                                        ? 'bg-blue-500 text-white'
+                                        ? 'text-white'
                                         : 'text-gray-700 hover:bg-gray-100'
                                         }`}
                                 >
-                                    {item.text}
+                                    {item.label}
                                 </Link>)}
                         </div>
                         {/* Navigation mobile */}
@@ -73,7 +80,7 @@ export default function Navigation() {
                                         className={`block py-2 px-4 rounded ${location.pathname === item.path ? 'bg-blue-100 text-blue-600' : 'hover:bg-gray-100'
                                             }`}
                                     >
-                                        {item.text}
+                                        {item.label}
                                     </Link>
                                 ))}
                             </div>
