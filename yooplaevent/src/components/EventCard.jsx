@@ -7,7 +7,7 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Favorite, FavoriteBorder as FavoriteBorderIcon } from '@mui/icons-material';
 import ShareIcon from '@mui/icons-material/Share';
 import Fab from '@mui/material/Fab';
 import { Link } from 'react-router-dom';
@@ -22,6 +22,15 @@ const EventCard = ({
         avatar: "https://i.imgur.com/KzsAG1B.jpeg"
     }
 }) => {
+    const [isFavorite, setIsFavorite] = React.useState(false);
+
+    const handleFavoriteClick = (e) => {
+        // Empêche la navigation lorsque l'on clique sur l'icône,
+        // car la carte entière est un lien.
+        e.preventDefault();
+        e.stopPropagation();
+        setIsFavorite(!isFavorite);
+    };
     return (
         <Card
             component={Link}
@@ -72,10 +81,14 @@ const EventCard = ({
             {/* Actions : favori et réservation */}
             <CardActions disableSpacing sx={{ flexShrink: 0 }}>
                 <div className="flex space-x-2 w-full justify-between">
-                    <IconButton aria-label="add to favorites">
-                        <FavoriteBorderIcon />
+                    <IconButton
+                        aria-label="add to favorites"
+                        onClick={handleFavoriteClick}
+                        color={isFavorite ? "error" : "default"}
+                    >
+                        {isFavorite ? <Favorite /> : <FavoriteBorderIcon />}
                     </IconButton>
-                    <Fab variant="extended" size="medium" color="secondary">
+                    <Fab variant="extended" size="medium" color="secondary" sx={{ zIndex: 0 }}>
                         Réserver
                     </Fab>
                 </div>
