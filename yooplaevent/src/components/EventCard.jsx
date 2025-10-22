@@ -7,11 +7,10 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShareIcon from '@mui/icons-material/Share';
-import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
+import { Link } from 'react-router-dom';
 
 const EventCard = ({
     event = {
@@ -24,7 +23,18 @@ const EventCard = ({
     }
 }) => {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card
+            component={Link}
+            to={`/event/${event.id}`}
+            sx={{
+                width: 335, // Largeur fixe pour la carte
+                maxWidth: '100%', // Assure la responsivité sur les petits écrans
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                textDecoration: 'none',
+                cursor: 'pointer'
+            }}>
             {/* En-tête avec avatar et titre */}
             <CardHeader
                 avatar={
@@ -47,29 +57,27 @@ const EventCard = ({
             {/* Image de l'événement */}
             <CardMedia
                 component="img"
-                height="194"
                 image={event.image}
                 alt={event.title}
+                sx={{ height: 140, width: '100%', objectFit: 'cover', flexShrink: 0 }}
             />
 
             {/* Description */}
-            <CardContent>
+            <CardContent sx={{ flexGrow: 1 }}>
                 <Typography variant="body2" color="text.secondary">
                     {event.description}
                 </Typography>
             </CardContent>
 
             {/* Actions : favori et réservation */}
-            <CardActions disableSpacing>
-                <div className="flex space-x-2 w-full justify-between py-2 px-2">
+            <CardActions disableSpacing sx={{ flexShrink: 0 }}>
+                <div className="flex space-x-2 w-full justify-between">
                     <IconButton aria-label="add to favorites">
                         <FavoriteBorderIcon />
                     </IconButton>
-                    <Box sx={{ '& > :not(style)': { m: 1 } }}>
-                        <Fab variant="extended" size="meduim" color="secondary">
-                            Réserver
-                        </Fab>
-                    </Box>
+                    <Fab variant="extended" size="medium" color="secondary">
+                        Réserver
+                    </Fab>
                 </div>
             </CardActions>
         </Card>

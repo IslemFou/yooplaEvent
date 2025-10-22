@@ -1,9 +1,7 @@
 import React from 'react';
 import EventCard from '../components/EventCard';
 import events from '../data/events';
-import { Container, Grid, Typography, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
-import Card from '@mui/material/Card';
+import { Container, Grid, Typography, Box, Button, } from '@mui/material';
 
 export default function Home() {
     return (
@@ -16,7 +14,7 @@ export default function Home() {
                     gutterBottom
                     sx={{
                         fontWeight: 'bold',
-                        color: 'primary.main'
+                        color: 'secondary.main'
                     }}
                 >
                     Événements à Venir
@@ -31,14 +29,14 @@ export default function Home() {
             </Box>
 
             {/* Grille d'événements */}
-            <Grid container spacing={4}>
+            <Grid container spacing={3}>
                 {events.map((event) => (
-                    <Card
-                        component={Link}
-                        to={`/event/${event.id}`}
-                        item key={event.id} xs={12} sm={6} md={4}>
+                    <Grid key={event.id}
+                        xs={12} sm={6} md={4} sx={{
+                            display: 'flex', justifyContent: 'center', alignItems: 'flex-start', px: 2, py: 2
+                        }}>
                         <EventCard event={event} />
-                    </Card>
+                    </Grid>
                 ))}
             </Grid>
 

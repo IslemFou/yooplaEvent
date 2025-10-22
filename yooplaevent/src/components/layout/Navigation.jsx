@@ -43,7 +43,7 @@ export default function Navigation() {
                         <div className="hidden md:flex space-x-4">
                             {menuItems.map((item) =>
                                 <Link
-                                    key={item.text} // Ajout de la clé unique pour chaque élément du tableau
+                                    key={item.path} // Ajout de la clé unique pour chaque élément du tableau
                                     to={item.path} // Utilisation de la propriété path de chaque élément du tableau
                                     className={`px-3 py-2 rounded-md ${location.pathname === item.path
                                         ? 'text-white'
