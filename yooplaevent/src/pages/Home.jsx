@@ -7,25 +7,27 @@ export default function Home() {
     return (
         <Container maxWidth="lg" sx={{ py: 4 }}>
             {/* En-tête de la page */}
-            <Box textAlign="center" mb={6}>
-                <Typography
-                    variant="h3"
-                    component="h1"
-                    gutterBottom
-                    sx={{
-                        fontWeight: 'bold',
-                        color: 'secondary.main'
-                    }}
-                >
-                    Événements à Venir
-                </Typography>
-                <Typography
-                    variant="h6"
-                    color="text.secondary"
-                    sx={{ mb: 4 }}
-                >
-                    Découvrez et réservez vos événements préférés
-                </Typography>
+            <Box>
+                <Box textAlign="center" mb={6}>
+                    <Typography
+                        variant="h3"
+                        component="h1"
+                        gutterBottom
+                        sx={{
+                            fontWeight: 'bold',
+                            color: 'secondary.main'
+                        }}
+                    >
+                        Découvrez nos événements
+                    </Typography>
+                    <Typography
+                        variant="h6"
+                        color="text.secondary"
+                        sx={{ mb: 4 }}
+                    >
+                        Découvrez et réservez vos événements préférés
+                    </Typography>
+                </Box>
             </Box>
 
             {/* Grille d'événements */}
