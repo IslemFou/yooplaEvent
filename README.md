@@ -1,6 +1,7 @@
 # yooplaEvent
 
-> Une courte description de ce que fait le projet yooplaEvent. Quel est son but ? À quel problème répond-il ?
+Yoopla event est un projet de réservation d'événement local
+Fait avec React js, Tailwindcss, et la bibliothèque MUI
 
 ## Table des matières
 
