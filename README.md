@@ -32,7 +32,7 @@ cd yooplaEvent
 # 3. Installez les dépendances
 npm install
 ```
- Configuration des dépendances spécifiques
+### Configuration des dépendances spécifiques
  
  Ce projet utilise Tailwind CSS pour le stylisme, Material-UI (MUI) pour les composants d'interface utilisateur et React Router DOM pour la navigation. 
 
@@ -47,10 +47,12 @@ npx tailwindcss init -p
 
 2. Configurer les chemins des fichiers dans tailwind.config.js:
 
-Modifiez tailwind.config.js pour inclure tous les fichiers qui contiennent des classes Tailwind. Par exemple :
+Modifiez tailwind.config.js pour inclure tous les fichiers qui contiennent des classes Tailwind.
 
 3. Material-UI (MUI) 
-Material-UI est inclus dans les dépendances et sera installé automatiquement avec npm install. Vous pouvez commencer à utiliser les composants MUI directement dans votre code React. + +#### React Router DOM.
+Material-UI est inclus dans les dépendances et sera installé automatiquement avec npm install. Vous pouvez commencer à utiliser les composants MUI directement dans votre code React.
+
+#### React Router DOM.
 React Router DOM est également inclus et installé avec npm install, prêt à être utilisé pour la gestion des routes de votre application.
 
 ## Utilisation
